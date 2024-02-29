@@ -5,7 +5,7 @@ function registerUser(name, birthdate, username, email, password) {
         throw new Error('name is lower than 1 character')
     var nameIsBlank = true
 
-    for (var i = 0; i < name, length && nameIsBlank; i++) {
+    for (var i = 0; i < name.length && nameIsBlank; i++) {
         var char = name[i]
 
         if (char !== '')
@@ -69,7 +69,7 @@ function registerUser(name, birthdate, username, email, password) {
           throw new Error('user already exists')
         // uso el for is to check if the e-mail was registred or not
     }  
-    var user = {
+    var users = {
         name: name,
         birthdate:birthdate,
         username:username,
