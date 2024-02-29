@@ -69,7 +69,7 @@ function registerUser(name, birthdate, username, email, password) {
           throw new Error('user already exists')
         // uso el for is to check if the e-mail was registred or not
     }  
-    var users = {
+    var user = {
         name: name,
         birthdate:birthdate,
         username:username,
@@ -77,6 +77,8 @@ function registerUser(name, birthdate, username, email, password) {
         password: password
     }
 
-    user[users.length] = user
+    users[users.length] = user
+    
+    localStorage.users=JSON.stringify(users)
 
 }
