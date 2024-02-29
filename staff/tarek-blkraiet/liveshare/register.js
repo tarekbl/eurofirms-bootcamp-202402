@@ -4,13 +4,13 @@ var form = document.querySelector('.form')
 var anchor=document.querySelector('a')
 
 form.onsubmit = function (event) {
-    event.preventDefault() //
+    event.preventDefault()
 
     var nameInput = form.querySelector('#name')
     var name = nameInput.value
 
     var birthdateInput = form.querySelector('#birthdate')
-    var birethdate = birthdateInput.value
+    var birthdate = birthdateInput.value
 
     var usernameInput = form.querySelector('#username')
     var username = usernameInput.value
@@ -27,12 +27,13 @@ form.onsubmit = function (event) {
         console.log('user registered')
 
         alert('user registered')
-        from.reset()
+        
+        from.reset() // clean files
 
         anchor.click()
 
     } catch (error) {
-        console.log(error.message)
+        console.error(error.message)
         
         alert(error.message)
     }

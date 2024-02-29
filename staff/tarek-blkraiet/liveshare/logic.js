@@ -8,7 +8,7 @@ function registerUser(name, birthdate, username, email, password) {
     for (var i = 0; i < name.length && nameIsBlank; i++) {
         var char = name[i]
 
-        if (char !== '')
+        if (char !== ' ')
             nameIsBlank = false
 
     }
@@ -19,7 +19,7 @@ function registerUser(name, birthdate, username, email, password) {
     if (birthdate.length !== 10)
         throw new Error('birthdate does not have 10 characters')
 
-    if (birthdate.includes(''))
+    if (birthdate.includes(' '))
         throw new Error('birthdate has a space character')
 
     if (birthdate.indexOf('-') !== 4 || birthdate.lastIndexOf('-') !== 7)
@@ -32,7 +32,7 @@ function registerUser(name, birthdate, username, email, password) {
     if (username.length < 3)
         throw new Error('username is lower than 3 characters')
 
-    if (username.includes(''))
+    if (username.includes(' '))
         throw new Error('username has a space character')
 
     if (email.length < 6)
@@ -53,32 +53,68 @@ function registerUser(name, birthdate, username, email, password) {
     if (email.length - 1 - email.indexOf('.') < 2)
         throw new Error('email domain is lower than 2 characters')
 
-    if (email.includes(''))
+    if (email.includes(' '))
         throw new Error('email has space characters')
 
-    if(password.length<8) 
-       throw new Error('password is lower than 8 characters')
+    if (password.length < 8)
+        throw new Error('password is lower than 8 characters')
 
-    if(password.includes(' '))
-       throw new Error('password has space characters')
+    if (password.includes(' '))
+        throw new Error('password has space characters')
 
-    for(var i=0; users.length; i++){
+    for (var i = 0; i < users.length; i++) {
         var user = users[i]
 
-        if(user.email === email)
-          throw new Error('user already exists')
+        if (user.username === username)
+            throw new Error('user already exists')
+
+        if (user.email === email)
+            throw new Error('user already exists')
         // uso el for is to check if the e-mail was registred or not
-    }  
+    }
     var user = {
         name: name,
-        birthdate:birthdate,
-        username:username,
-        email:email,
+        birthdate: birthdate,
+        username: username,
+        email: email,
         password: password
     }
 
     users[users.length] = user
-    
-    localStorage.users=JSON.stringify(users)
+
+    localStorage.users = JSON.stringify(users)
+
+}
+
+function loginUser(username, password) {
+    if (username.length < 3)
+        throw new Error('username is lower than 3 characters')
+
+    if (username.includes(' '))
+        throw new Error('username has a space character')
+
+    if (password.length < 8)
+        throw new Error('password is lower than 8 characters')
+
+    if (password.includes(' '))
+        throw new Error('password has space character')
+
+    var user
+
+    for (var i = 0; i < user.length; i++) {
+        var user2 = users[i]
+
+        if (user2.username === username) {
+            user = user2
+
+            break
+        }
+    }
+
+    if (user === undefined)
+        throw new Error('user not found')
+
+    if (user.password !== password)
+        throw new Error('wrong password')
 
 }
