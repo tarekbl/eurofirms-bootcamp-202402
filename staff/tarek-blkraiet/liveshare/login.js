@@ -18,10 +18,10 @@ form.onsubmit = function (event) {
 
         alert('user logged in')
 
-        form.reset // para clean los especios despues de escribir
+        form.reset() // para clean los especios despues de escribir
 
         //TODO navigate to home
-      } catch (error){
+      } catch (error) {
         console.error(error.message)
 
         alert(error.message)
