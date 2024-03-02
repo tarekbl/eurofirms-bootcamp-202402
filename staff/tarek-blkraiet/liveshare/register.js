@@ -28,7 +28,7 @@ form.onsubmit = function (event) {
 
         alert('user registered')
         
-        from.reset() // clean files
+        from.reset() // clean space of the imputs for next user
 
         anchor.click()
 

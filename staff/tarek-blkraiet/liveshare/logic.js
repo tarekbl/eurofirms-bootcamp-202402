@@ -25,9 +25,10 @@ function registerUser(name, birthdate, username, email, password) {
     if (birthdate.indexOf('-') !== 4 || birthdate.lastIndexOf('-') !== 7)
         throw new Error('birthdate dashes are not in correct position')
 
-    //todo check that the birthdate has only 2 dashes
+    /*/todo check that the birthdate has only 2 dashes
     //todo check that birthdate has not alphabet characters(only numbers and 2 dashes)
     //todo check that birthdate is equal or greater than 18 years old
+    */
 
     if (username.length < 3)
         throw new Error('username is lower than 3 characters')
@@ -117,4 +118,28 @@ function loginUser(username, password) {
     if (user.password !== password)
         throw new Error('wrong password')
 
+}
+function retrieveUser(username) {
+
+    if (username.length < 3)
+        throw new error('username is lower than 3 characters')
+
+    if (username.includes(' '))
+        throw new error('username has a space')
+
+    var user
+
+    for (var i = 0; users.length; i++) {
+        var user2 = users[i]
+
+        if (user2.username === sessionStorage.username)
+            user = user2
+
+        break
+    }
+
+    if (user === undefined)
+        throw new Error('user not found')
+
+    return user
 }
