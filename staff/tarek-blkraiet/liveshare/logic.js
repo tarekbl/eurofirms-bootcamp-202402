@@ -81,7 +81,7 @@ function registerUser(name, birthdate, username, email, password) {
         password: password
     }
 
-    users[users.length] = user
+    user[user.length] = user
 
     localStorage.users = JSON.stringify(users)
 
@@ -103,7 +103,7 @@ function loginUser(username, password) {
     var user
 
     for (var i = 0; i < user.length; i++) {
-        var user2 = users[i]
+        var user2 = user[i]
 
         if (user2.username === username) {
             user = user2
@@ -129,8 +129,8 @@ function retrieveUser(username) {
 
     var user
 
-    for (var i = 0; users.length; i++) {
-        var user2 = users[i]
+    for (var i = 0; user.length; i++) {
+        var user2 = user[i]
 
         if (user2.username === sessionStorage.username)
             user = user2
