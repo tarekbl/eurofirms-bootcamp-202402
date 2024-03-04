@@ -1,7 +1,7 @@
 // presntation layer
 
 var title = document.querySelector('h1')
-var logoutbutton = Document.querySelector('button')
+var logoutbutton = document.querySelector('button')
 
 try {
     var user = restrieveUser(sessionStorage.username)

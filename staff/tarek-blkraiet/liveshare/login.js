@@ -23,9 +23,10 @@ form.onsubmit = function (event) {
         form.reset() 
         // para clean los especios despues de escribir
         var loginAddress = location.href
-
         var homeAddress = loginAddress.replace('login', 'home')
-
+        
+        
+        
         location.href = homeAddress
 
         //TODO navigate to home
