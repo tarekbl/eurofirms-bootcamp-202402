@@ -3,7 +3,8 @@
 function registerUser(name, birthdate, username, email, password) {
     if (name.length < 1)
         throw new Error('name is lower than 1 character')
-    var nameIsBlank = true
+    
+        var nameIsBlank = true
 
     for (var i = 0; i < name.length && nameIsBlank; i++) {
         var char = name[i]
@@ -63,6 +64,8 @@ function registerUser(name, birthdate, username, email, password) {
     if (password.includes(' '))
         throw new Error('password has space characters')
 
+        var users =JSON.parse(localStorage.users || '[]')
+
     for (var i = 0; i < users.length; i++) {
         var user = users[i]
 
@@ -74,6 +77,7 @@ function registerUser(name, birthdate, username, email, password) {
         // uso el for is to check if the e-mail was registred or not
     }
     var user = {
+        id: parseInt(Math.random() * 10000000000000000000).toString(36),
         name: name,
         birthdate: birthdate,
         username: username,
@@ -102,6 +106,8 @@ function loginUser(username, password) {
 
     var user
 
+    var users = JSON.parse(localStorage.users || '[]')
+
     for (var i = 0; i < users.length; i++) {
         var user2 = users[i]
 
@@ -118,21 +124,20 @@ function loginUser(username, password) {
     if (user.password !== password)
         throw new Error('wrong password')
 
+    sessionStorage.userId = user.id    
+
 }
 function retrieveUser(username) {
 
-    if (username.length < 3)
-        throw new error('username is lower than 3 characters')
-
-    if (username.includes(' '))
-        throw new error('username has a space')
-
+    
     var user
+
+    var users = JSON.parse(localStorage.users || '[]')
 
     for (var i = 0; users.length; i++) {
         var user2 = users[i]
 
-        if (user2.username === sessionStorage.username)
+        if (user2.id === sessionStorage.userId)
             user = user2
 
         break
