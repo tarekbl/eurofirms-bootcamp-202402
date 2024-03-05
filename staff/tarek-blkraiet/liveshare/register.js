@@ -28,7 +28,8 @@ form.onsubmit = function (event) {
 
         alert('user registered')
         
-        from.reset() // clean space of the imputs for next user
+        
+        from.reset()
 
         anchor.click()
 
@@ -40,4 +41,4 @@ form.onsubmit = function (event) {
 
 } 
 
-        
+        // clean space of the imputs for next user from.rest()
