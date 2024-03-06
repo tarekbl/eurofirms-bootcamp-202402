@@ -29,7 +29,7 @@ form.onsubmit = function (event) {
         alert('user registered')
         
         
-        from.reset()
+        form.reset()
 
         anchor.click()
 

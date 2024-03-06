@@ -1,10 +1,9 @@
 // presntation layer
-
 var title = document.querySelector('h1')
 var logoutButton = document.querySelector('button')
 
 try {
-    var user = restrieveUser()
+    var user = retrieveUser()
 
     title.innerText = 'Hello, ' + user.name + '!'
 } catch (error) {
@@ -17,7 +16,7 @@ try {
 }
 
 logoutButton.onclick = function () {
-    delete sessionStorage.username
+    logoutUser()
 
     var homeAddress = location.href
     

@@ -3,8 +3,8 @@
 function registerUser(name, birthdate, username, email, password) {
     if (name.length < 1)
         throw new Error('name is lower than 1 character')
-    
-        var nameIsBlank = true
+
+    var nameIsBlank = true
 
     for (var i = 0; i < name.length && nameIsBlank; i++) {
         var char = name[i]
@@ -64,20 +64,18 @@ function registerUser(name, birthdate, username, email, password) {
     if (password.includes(' '))
         throw new Error('password has space characters')
 
-        var users =JSON.parse(localStorage.users || '[]')
+    var user = findUser(function (user) {
+        return user.username === username || user.email === email
+    })
 
-    for (var i = 0; i < users.length; i++) {
-        var user = users[i]
 
-        if (user.username === username)
-            throw new Error('user already exists')
 
-        if (user.email === email)
-            throw new Error('user already exists')
-        // uso el for is to check if the e-mail was registred or not
-    }
+    if (user !== undefined)
+        throw new Error('user already exists')
+
+
+
     var user = {
-        id: parseInt(Math.random() * 10000000000000000000).toString(36),
         name: name,
         birthdate: birthdate,
         username: username,
@@ -85,10 +83,7 @@ function registerUser(name, birthdate, username, email, password) {
         password: password
     }
 
-    user[users.length] = user
-
-    localStorage.users = JSON.stringify(users)
-
+    insertUser(user)
 }
 
 function loginUser(username, password) {
@@ -104,19 +99,13 @@ function loginUser(username, password) {
     if (password.includes(' '))
         throw new Error('password has space character')
 
-    var user
+    var user = findUser(function (user) {
+        return user.username === username
 
-    var users = JSON.parse(localStorage.users || '[]')
+    })
 
-    for (var i = 0; i < users.length; i++) {
-        var user2 = users[i]
 
-        if (user2.username === username) {
-            user = user2
 
-            break
-        }
-    }
 
     if (user === undefined)
         throw new Error('user not found')
@@ -124,27 +113,21 @@ function loginUser(username, password) {
     if (user.password !== password)
         throw new Error('wrong password')
 
-    sessionStorage.userId = user.id    
+    sessionStorage.userId = user.id
 
 }
-function retrieveUser(username) {
+function retrieveUser() {
 
-    
-    var user
 
-    var users = JSON.parse(localStorage.users || '[]')
-
-    for (var i = 0; users.length; i++) {
-        var user2 = users[i]
-
-        if (user2.id === sessionStorage.userId)
-            user = user2
-
-        break
-    }
+    var user = findUser(function (user) {
+        return user.id === sessionStorage.userId
+    })
 
     if (user === undefined)
         throw new Error('user not found')
 
     return user
+}
+function logoutUser() {
+    delete sessionStorage.userId
 }
