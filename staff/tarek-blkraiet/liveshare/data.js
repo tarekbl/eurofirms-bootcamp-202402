@@ -60,7 +60,7 @@ var data = (function () {
     }
 
     return {
-        findUser: findUser,
+        findUser:findUser,
         insertUser: insertUser,
         saveUser: saveUser,
         findUsers: findUsers

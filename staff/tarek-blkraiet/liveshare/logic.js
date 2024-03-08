@@ -82,6 +82,8 @@ var logic = (function () {
     // logic
 
     function registerUser(name, birthdate, username, email, password) {
+        
+        
         validateName(name)
         validateBirthdate(birthdate)
         validateUsername(username)
@@ -177,6 +179,7 @@ var logic = (function () {
     return {
         registerUser: registerUser,
         loginUser: loginUser,
+        retrieveUser:retrieveUser,
         logoutUser: logoutUser,
         retrieveOnlineUsers: retrieveOnlineUsers
     }
