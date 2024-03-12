@@ -1,5 +1,4 @@
-
-function slice(string,indexStart, indexEnd){
+function slice (string,indexStart, indexEnd){
     var result=''
 
     // if (indexStart === -indexStart)
@@ -12,7 +11,7 @@ function slice(string,indexStart, indexEnd){
         index = string.length +indexEnd;
     }
 
-    for(var i= indexStart;i<indexEnd;i++){
+    for (var i= indexStart; i<indexEnd; i++){
         result = result + string[i] // para ir acumulando
 
     }
