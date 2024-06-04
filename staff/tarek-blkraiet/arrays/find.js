@@ -25,7 +25,7 @@ console.log(numbers20)
  // que contenga los emails de los usuarios como string
 
  var users =[
-    { name: 'pepito', email:'pepito@grillo.com'},
+    { name:'pepito', email:'pepito@grillo.com'},
     { name:'wendy', email:'wendy@darling.com'},
     {name:'peter', email:'peter@pan.com'},
     {name:'pinocho', email:'pin@ocho.com'}
