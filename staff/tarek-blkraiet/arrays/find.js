@@ -1,9 +1,9 @@
 //usando el find, crea un nuevo Array, con cada uno de los numberos multiplicando por 20
 
-var numbers = [ 10,20, 30, 40, 50, 60]
+var numbers = [ 10,25, 30, 45, 55, 65]
 
 var numbers20 = numbers.find( function (x){
-    return numbers > 20
+    return numbers > 30
 })
 
 console.log(numbers20)
@@ -12,6 +12,7 @@ console.log(numbers20)
  //crea una nueva array, con la longitud de cada de los 
 
  var strings = ['hola', 'mundo', 'a',' todos']
+ console.log('CASE 2 : find the first string that contains the string ->u<-')
 
  var string = strings.find(function(strings){
     return strings.includes('o')
