@@ -287,6 +287,5 @@ var logic = (function () {
         retrieveMessagesWithUser: retrieveMessagesWithUser,
         getLoggedInUserId: getLoggedInUserId,
         createPost: createPost,
-        retrievePosts:retrievePosts
     }
 })()
