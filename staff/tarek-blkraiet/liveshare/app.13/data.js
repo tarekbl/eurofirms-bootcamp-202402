@@ -15,6 +15,8 @@ var data = (function () {
     function saveMessages(messages) {
         localStorage.messages = JSON.stringify(messages)
     }
+
+    // data
     // me acabo de añadir
     function loadPosts() {
         return JSON.parse(localStorage.posts || '[]')

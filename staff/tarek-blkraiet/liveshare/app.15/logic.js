@@ -1,11 +1,9 @@
 // business layer (logic)
 
 var logic = (function () {
+//helpers
 
-    //helpers
-
-
-    function validateName(name) {
+function validateName(name) {
         // name validations
         if (name.length < 1)
             throw new Error('name is lower than 1 character')
@@ -17,15 +15,12 @@ var logic = (function () {
 
             if (char !== ' ')
                 nameIsBlank = false
-
         }
 
         if (nameIsBlank)
             throw new Error('name is blank')
     }
-
     function validateBirthdate(birthdate) {
-
         if (birthdate.length !== 10)
             throw new Error('birthdate does not have 10 characters')
 
@@ -272,7 +267,7 @@ var logic = (function () {
                 post.author = user
             })
 
-            return posts
+            return posts.reverse()
         }
     }
 
